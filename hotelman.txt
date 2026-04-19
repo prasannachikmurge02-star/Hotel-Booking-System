@@ -1,0 +1,28 @@
+Payment: Online (UPI: 21344223)
+
+--- Booking Details ---
+Name: Prasanna
+Hotel: Cherish
+Room: Luxury
+Meal: Breakfast + Dinner
+Members: 2
+Bill: 6608
+Stay: 2026-04-19 to 2026-04-21
+Payment Mode: Offline
+Name: prasanna, Address: 122312, Aadhar: 3232
+Final Bill: 6608, Payment Mode: on;ine
+Stay from: 2026-04-19 to 2026-04-21Payment: Online (UPI: 2344566542)
+
+===== BILL RECEIPT =====
+Date & Time: 19-04-2026 01:24:39
+Name: ,ffledlsd
+Area: Chinchwad
+Hotel: Green Tree
+Room: Luxury
+Meal: Combo
+Members: 2
+Base Amount: 6000
+GST: 1080
+Final Bill: 7080
+Stay Till: 2026-04-21
+============================
