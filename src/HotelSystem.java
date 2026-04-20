@@ -44,7 +44,7 @@ public class HotelSystem {
 
     // -------- Customer Input --------
     void getCustomerDetails() {
-        sc.nextLine(); // clear buffer
+        sc.nextLine();
 
         System.out.println("Enter Name:");
         customerName = sc.nextLine();
@@ -137,31 +137,40 @@ public class HotelSystem {
                 case 3: mealType = "Non-Veg"; mealPrice = 1200; break;
             }
 
-            // -------- BILLING --------
+            // -------- MEMBERS --------
             System.out.println("Enter number of members:");
             int members = sc.nextInt();
 
-            int total = (roomPrice + mealPrice) * members;
+            // -------- DAYS --------
+            System.out.println("Enter number of days to stay:");
+            int days = sc.nextInt();
+
+            // -------- BILLING --------
+            int total = (roomPrice + mealPrice) * members * days;
             int gst = total * 18 / 100;
             finalBill = total + gst;
 
-            // -------- DATE API --------
-            LocalDateTime now = LocalDateTime.now();
+            // -------- DATE --------
+            LocalDateTime checkIn = LocalDateTime.now();
+            LocalDateTime checkOut = checkIn.plusDays(days);
             DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
             // -------- DISPLAY BILL --------
             System.out.println("\n===== BILL =====");
-            System.out.println("Date: " + now.format(format));
+            System.out.println("Check-In: " + checkIn.format(format));
+            System.out.println("Check-Out: " + checkOut.format(format));
             System.out.println("Customer: " + h.getCustomerName());
             System.out.println("Area: " + area);
             System.out.println("Room: " + roomType);
             System.out.println("Meal: " + mealType);
+            System.out.println("Members: " + members);
+            System.out.println("Days: " + days);
             System.out.println("Base Amount: " + total);
-            System.out.println("GST: " + gst);
+            System.out.println("GST (18%) : " + gst);
             System.out.println("Final Bill: " + finalBill);
 
             // -------- PAYMENT --------
-            sc.nextLine(); // clear buffer
+            sc.nextLine();
             System.out.println("Enter Payment Mode (online/offline):");
             String paymentMode = sc.nextLine();
 
@@ -177,8 +186,10 @@ public class HotelSystem {
             fw.write("\nName: " + h.getCustomerName());
             fw.write("\nAddress: " + h.getCustomerAddress());
             fw.write("\nAadhar: " + h.getAadharNumber());
+            fw.write("\nCheck-In: " + checkIn.format(format));
+            fw.write("\nCheck-Out: " + checkOut.format(format));
+            fw.write("\nDays: " + days);
             fw.write("\nFinal Bill: " + finalBill);
-            fw.write("\nDate: " + now.format(format));
             fw.write("\n-------------------------\n");
 
             fw.close();
